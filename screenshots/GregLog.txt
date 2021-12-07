@@ -1,0 +1,3 @@
+Day 1:
+Greg: Created project, set up git, created simple diagrams, wrote BO & DTO CLASSES.
+Kashif: Created the file hierarchy, DAO, and began work on the service.
