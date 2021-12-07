@@ -1,5 +1,10 @@
 package com.cogent.dto;
 
+import lombok.Data;
+import lombok.ToString;
+
+@Data
+@ToString
 public class ProductDTO {
 	private Long id;
 	private String description;
