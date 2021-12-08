@@ -1,6 +1,8 @@
 package com.cogent.service;
 
+
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +42,9 @@ public class UserService  {
 	public List<User> getAllUsers(){
 		return userDAO.findAll();
 	}
+
 	public User getUserById(long UID) {
 		return userDAO.getById(UID);
 	}
+
 }
