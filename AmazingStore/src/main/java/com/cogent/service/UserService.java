@@ -1,5 +1,7 @@
 package com.cogent.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cogent.bo.User;
@@ -17,5 +19,9 @@ public class UserService  {
 	public void deleteUser(User user) {
 		userDAO.delete(user);
 	}
+	public List<User> getAllUsers(){
+		return userDAO.findAll();
+	}
+
 
 }
