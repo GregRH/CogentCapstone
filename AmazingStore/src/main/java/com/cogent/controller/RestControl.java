@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.cogent.bo.Product;
-import com.cogent.dao.ProductDAO;
+import com.cogent.bo.User;
+import com.cogent.service.ProductService;
 @RestController
 //@RequestMapping("rest")
 public class RestControl {
-//	@Autowired
-//	ProductService productService;
 	@Autowired
-	ProductDAO dao;
+	ProductService productService;
+
 	
 	@GetMapping("/product/{id}")
 	public ResponseEntity<Product> getProduct(@PathVariable long id){
-		Product p = dao.getById(id);
+		Product p = productService.getProductById(id);
 		System.out.println("F");
 		return ResponseEntity.ok().body(p);
 	}
@@ -39,15 +39,23 @@ public class RestControl {
 	public List<Product> allProducts(){
 		System.out.println("Get mapping");
 		
-		return dao.findAll();
+		return productService.getAllProducts();
 	}
-//	@PostMapping("/product")
-//	public ResponseEntity<Object> createNewProduct(@RequestBody Product product){
-//		//productService.insertProduct(product);
-//		dao.save(product);
-//		String id = ""+product.getId();
-//		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-//				.buildAndExpand(id).toUri();
-//		return ResponseEntity.created(location).build();
-//	}
+	@PostMapping("/product")
+	public ResponseEntity<Object> createNewProduct(@RequestBody Product product){
+		productService.addProduct(product);
+		String id = ""+product.getId();
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(id).toUri();
+		return ResponseEntity.created(location).build();
+	}
+	@PostMapping("/user")
+	public ResponseEntity<Object> createUser(@RequestBody User user){
+		String id=""+user.getId();
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(id).toUri();
+		return ResponseEntity.created(location).build();
+	}
 }

@@ -1,5 +1,7 @@
 package com.cogent.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +30,12 @@ public class ProductService {
 		return "Success" ;
 		
 	}
-	public String getProductById(Product product) {
-		Product product1 = productDAO.getById(product);
-		
+	public List<Product> getAllProducts(){
+		return productDAO.findAll();
+	}
+	public Product getProductById(long id) {
+		Product product1 = productDAO.getById(id);
+		return product1;
 	}
 	
 
