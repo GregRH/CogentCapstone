@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -22,4 +24,8 @@ public class User implements Serializable {
 	private String email;
 	private String password;
 	private Date dob;
+	
+	@OneToOne
+	@JoinColumn(name="cart_id",referencedColumnName = "id")
+	private Cart cart;
 }
