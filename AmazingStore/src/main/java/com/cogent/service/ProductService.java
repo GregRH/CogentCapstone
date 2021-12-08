@@ -9,7 +9,7 @@ import com.cogent.dao.ProductDAO;
 @Service
 public class ProductService {
 	@Autowired
-	private ProductDAO productDAO;
+	ProductDAO productDAO;
 	
 	public String addProduct( Product product) {
 		Product product1 = productDAO.save(product);
@@ -26,6 +26,10 @@ public class ProductService {
 	public String updateProduct(Product product) {
 		
 		return "Success" ;
+		
+	}
+	public String getProductById(Product product) {
+		Product product1 = productDAO.getById(product);
 		
 	}
 	
