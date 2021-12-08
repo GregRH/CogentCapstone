@@ -19,6 +19,6 @@ public class Cart implements Serializable {
 	@Id
 	private Long id;
 	private User user;
-	private List<Product> products;
+	//private List<Product> products;
 	private float total;
 }
