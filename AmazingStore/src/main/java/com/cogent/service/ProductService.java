@@ -12,7 +12,9 @@ import com.cogent.dao.ProductDAO;
 public class ProductService {
 	@Autowired
 	ProductDAO productDAO;
-	
+	public List<Product> getProductByCategory(String category){
+		return productDAO.findByCategory(category);
+	}
 	public String addProduct( Product product) {
 		Product product1 = productDAO.save(product);
 		return "success";
