@@ -1,5 +1,7 @@
 package com.cogent.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cogent.bo.Cart;
@@ -16,5 +18,9 @@ public class CartService {
 	public void DeleteCart(Cart cart) {
 		cartDAO.delete(cart);
 	}
+	public List<Cart> getAllProducts(){
+		return cartDAO.findAll();
+	}
+
 
 }

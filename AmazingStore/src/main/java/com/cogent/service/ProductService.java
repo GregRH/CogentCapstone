@@ -30,6 +30,7 @@ public class ProductService {
 	}
 	public String getProductById(Product product) {
 		Product product1 = productDAO.getById(product);
+		return "";
 		
 	}
 	
