@@ -3,6 +3,7 @@ package com.cogent.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,5 +75,9 @@ public class TestingContoller {
 	@GetMapping("/{userId}/seller/items/{category}")
 	public String getSellerView(@PathVariable String category) {
 		return "";
+	}
+	@PostMapping("/{userId}/seller/items/{category}")
+	public void updateProduct(HttpServletRequest req, HttpServletResponse res) {
+		
 	}
 }
