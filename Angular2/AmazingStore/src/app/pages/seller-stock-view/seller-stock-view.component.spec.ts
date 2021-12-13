@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SellerViewComponent } from './seller-view.component';
+import { SellerStockViewComponent } from './seller-stock-view.component';
 
-describe('SellerViewComponent', () => {
-  let component: SellerViewComponent;
-  let fixture: ComponentFixture<SellerViewComponent>;
+describe('SellerStockViewComponent', () => {
+  let component: SellerStockViewComponent;
+  let fixture: ComponentFixture<SellerStockViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SellerViewComponent ]
+      declarations: [ SellerStockViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SellerViewComponent);
+    fixture = TestBed.createComponent(SellerStockViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

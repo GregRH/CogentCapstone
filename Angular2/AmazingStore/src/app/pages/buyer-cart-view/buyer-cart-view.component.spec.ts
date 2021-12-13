@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BuyerViewComponent } from './buyer-view.component';
+import { BuyerCartViewComponent } from './buyer-cart-view.component';
 
-describe('BuyerViewComponent', () => {
-  let component: BuyerViewComponent;
-  let fixture: ComponentFixture<BuyerViewComponent>;
+describe('BuyerCartViewComponent', () => {
+  let component: BuyerCartViewComponent;
+  let fixture: ComponentFixture<BuyerCartViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BuyerViewComponent ]
+      declarations: [ BuyerCartViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BuyerViewComponent);
+    fixture = TestBed.createComponent(BuyerCartViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
