@@ -15,7 +15,7 @@ import { SellerStockViewComponent } from './pages/seller-stock-view/seller-stock
 import { SellerAddProductComponent } from './pages/seller-add-product/seller-add-product.component';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { HttpInterceptorService } from './service/httpinterceptor.service';
+import { HttpinterceptorService } from './services/httpinterceptor.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/menu';
@@ -51,30 +51,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MatAutocompleteModule,
-    HttpInterceptorService,
-    MatSnackBarModule,
-    MatBadgeModule,
-    MatMenuModule,
-    MatSelectModule,
     MatFormFieldModule,
-    MatDividerModule,
-    MatListModule,
-    MatTableModule,
-    MatGridListModule,
-    MatToolbarModule,
     MatIconModule,
-    MatSidenavModule,
-    MatCardModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
     HttpClientModule,
-    HTTP_INTERCEPTORS,
+    HttpInterceptorModule,
+    MatBadgeModule,
   ],
   providers: [
     //BsModalService,

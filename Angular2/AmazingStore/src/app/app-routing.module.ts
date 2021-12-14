@@ -7,6 +7,9 @@ const routes: Routes = [
     component: SignUpComponent,
     pathMatch: 'full',
   },
+  {
+    path: 'account',
+  },
 ];
 
 @NgModule({
