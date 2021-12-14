@@ -12,35 +12,7 @@ import com.cogent.dao.ProductDAO;
 public class ProductService {
 	@Autowired
 	ProductDAO productDAO;
-	public List<Product> getProductByCategory(String category){
-		return productDAO.findByCategory(category);
-	}
-	public String addProduct( Product product) {
-		Product product1 = productDAO.save(product);
-		return "success";
-		
-	}
-	
-	public void deleteProduct(Product product) {
-	
-		productDAO.delete(product);
-		
-	}
-	
-	public String updateProduct(Product product) {
-		
-		return "Success" ;
-		
-	}
 
-	
-	public List<Product> getAllProducts(){
-		return productDAO.findAll();
-	}
-	public Product getProductById(long id) {
-		Product product1 = productDAO.getById(id);
-		return product1;
-	}
 	
 
 	

@@ -1,1 +1,50 @@
-<p>login works!</p>
+<div class="bootstrap-wrapper">
+	<div class="container">
+		<div class="row mt20">
+			<div class="col-md-6 offset-md-3">
+				<mat-card>
+					<div class="container text-center">
+						<img src="../../../assets/cogent.png" alt=""/>
+					</div>
+					<h1 class="text-center">Login here</h1>
+					<form class="text-center">
+						<mat-form-field class="full-width" appearance="outline">
+							<mat-label>Username</mat-label>
+							<input
+									[(ngModel)]="loginData.username"
+									name="username"
+									required
+									matInput
+									placeholder="Enter here"
+									/>
+							<mat-hint>Valid User Name</mat-hint>
+						</mat-form-field><br>
+						<mat-form-field class="full-width" appearance="outline">
+							<mat-label>password</mat-label>
+							<input
+									[(ngModel)]="loginData.password"
+									name="password"
+									required
+									matInput
+									placeholder="Enter here"
+									/>
+						</mat-form-field><br>
+						<div class="container text-center">
+							<button mat-raised-button color="primary" type="submit">
+								login</button>
+							<button class="ml10" mat-raised-button color="accent">
+								reset
+							</button>
+						</div>
+
+					</form>
+
+				</mat-card>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>

@@ -2,12 +2,18 @@ package com.cogent.bo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.ToString;
@@ -18,6 +24,8 @@ import lombok.ToString;
 @Table(name="user")
 public class User implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
 	private Long id;
 	private String type;
 	private String name;
@@ -25,7 +33,7 @@ public class User implements Serializable {
 	private String password;
 	private Date dob;
 	
-	@OneToOne
-	@JoinColumn(name="cart_id",referencedColumnName = "id")
-	private Cart cart;
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval= true)
+	private List<Order> order;
 }
