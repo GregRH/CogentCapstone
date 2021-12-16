@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.cogent.bo.Order;
 @Repository
 public interface OrderDAO extends JpaRepository<Order, Long>{
-	Order findByAccountId(@RequestParam("id") Long id);
+	//Order findByAccountId(@RequestParam("id") Long id);
 	
 	@Query
 	(value="From Order o WHERE o.time = :time")

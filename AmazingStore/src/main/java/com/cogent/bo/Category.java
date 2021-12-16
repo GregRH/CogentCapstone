@@ -31,7 +31,6 @@ public class Category {
 	private String name;
 	
 	@JsonIgnore
-	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category", orphanRemoval=true)
 	private List<Product> products;
 	

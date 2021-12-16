@@ -2,7 +2,6 @@ package com.cogent.bo;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Locale.Category;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +27,7 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="product_id")
 	private Long id;
-	
+	private String name;
 	private String description;
 	private String img;
 	//private String category;
@@ -39,6 +38,8 @@ public class Product implements Serializable {
 	@JsonIgnore
 	@JoinColumn(name="categoryId")
 	private Category category;
+	
+	
 	@JsonIgnore
 	@ManyToMany(mappedBy="products")
 	private List<Order> orders;
