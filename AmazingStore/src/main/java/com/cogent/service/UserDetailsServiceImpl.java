@@ -5,22 +5,28 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.cogent.bo.User;
 import com.cogent.dao.UserDAO;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+	
 	@Autowired
-	UserDAO userRepository;
-
+	private UserDAO userRepository;
+	
 	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(email)
-				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + email));
-
-		return UserDetailsImpl.build(user);
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		User user = this.userRepository.findByEmail(username);
+		if(user==null) {
+			System.out.println("Not found");
+			throw new UsernameNotFoundException("No found");
+		}
+		
+		return user;
 	}
+	
+	
 
 }

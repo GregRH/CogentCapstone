@@ -19,11 +19,11 @@ import com.cogent.service.UserDetailsServiceImpl;
 
 @EnableWebSecurity
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled=true)
-
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class MySecurityConfig extends WebSecurityConfigurerAdapter{
+	
 	@Autowired
-	private JwtAuthenticationEntryPoint unautorizedHandler;
+	private JwtAuthenticationEntryPoint unauthorizedHandler;
 	
 	@Autowired
 	private JwtAuthenticationFilter jwtAuthenticationFilter;
@@ -33,7 +33,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	@Bean
-	public AuthenticationManager authenticationManagerBean() throws Exception{
+	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
 	
@@ -43,9 +43,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 	
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth)throws Exception{
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		auth.userDetailsService(this.userDetailsServiceImpl).passwordEncoder(passwordEncoder());
+		
 	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
@@ -54,14 +56,15 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 			.cors()
 			.disable()
 			.authorizeRequests()
-			.antMatchers("/generate-token","/user").permitAll()
+			.antMatchers("/generate-token","/user/").permitAll()
 			.antMatchers(HttpMethod.OPTIONS).permitAll()
 			.anyRequest().authenticated()
 			.and()
-			.exceptionHandling().authenticationEntryPoint(unautorizedHandler)
+			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
 			.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		http.addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class);
-
+		
+		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 	}
+
 }

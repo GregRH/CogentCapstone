@@ -17,7 +17,7 @@ public interface UserDAO extends JpaRepository<User, Long>{
 	
 	@Query
 	(value="FROM User u WHERE u.email= :email")
-	public Optional<User> findByEmail(@Param("email") String email);
+	public User findByEmail(@Param("email") String email);
 	
 	Boolean existsByEmail(String email);
 }
