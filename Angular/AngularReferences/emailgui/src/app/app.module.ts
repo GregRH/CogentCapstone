@@ -20,7 +20,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
-
+import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ProfileComponent,
+    WelcomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,8 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 	  MatSnackBarModule,
 	  MatToolbarModule,
 	  MatCardModule,
-	  MatIconModule
+	  MatIconModule,
+	  MatListModule
 
   ],
   providers: [],
