@@ -47,19 +47,29 @@ public class AuthController {
 	@Autowired
 	private JwtUtils jwtUtil;
 	
-//	@PostMapping("/generate-token")
-//	public ResponseEntity<?>generateToken(@RequestBody JwtRequest jwtRequest)throws Exception{
-////		try {
-////			authenticate(jwtRequest.getUsername(),jwtRequest.getPassword());
-////		}catch(UserNotFoundException e) {
-////			e.printStackTrace();
-////			throw new Exception("User not found");
-////		}
-////		UserDetails userDetails = this.userDetailsServiceImpl.loadUserByUsername(jwtRequest.getUsername());
-////		String token = this.jwtUtil.generateJwtToken(userDetails);
-////		return ResponseEntity.ok(new JwtResponse(token));
-//	}
-	
+	@PostMapping("/signin")
+	public ResponseEntity<?>generateToken(@RequestBody LoginRequest loginRequest)throws Exception{
+		try {
+			authenticate(loginRequest.getEmail(),loginRequest.getPassword());
+		}catch(UserNotFoundException e) {
+			e.printStackTrace();
+			throw new Exception("User not found");
+		}
+		Authentication authentication = authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
+		String jwt = jwtUtil.generateJwtToken(authentication);
+		
+		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();		
+		List<String> roles = userDetails.getAuthorities().stream()
+				.map(item -> item.getAuthority())
+				.collect(Collectors.toList());
+		System.out.println("Loging in::"+ userDetails.getUsername()+"::"+roles);
+		return ResponseEntity.ok(new JwtResponse(jwt, 
+												 userDetails.getId(), 
+												 userDetails.getUsername(), 
+												 userDetails.getEmail(), 
+												 roles));
+	}
 	private void authenticate(String username, String password)throws Exception{
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
@@ -74,7 +84,7 @@ public class AuthController {
 		return ((User)this.userDetailsServiceImpl.loadUserByUsername(principal.getName()));
 	}
 	
-	@PostMapping("/signin")
+	@PostMapping("/ssignin")
 	public ResponseEntity<?> authenticateUser( @RequestBody LoginRequest loginRequest) throws Exception {
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
@@ -86,7 +96,7 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
-		System.out.println("Loging in::"+ userDetails.getUsername());
+		System.out.println("Loging in::"+ userDetails.getUsername()+"::"+roles);
 		return ResponseEntity.ok(new JwtResponse(jwt, 
 												 userDetails.getId(), 
 												 userDetails.getUsername(), 
