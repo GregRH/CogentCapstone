@@ -11,9 +11,9 @@ export class AccountService {
   constructor(private http: HttpClient) {}
 
   // URL 1 is for Data REST AKA all get methods
-  private baseUrl1 = 'http://localhost:8080/account';
+  private baseUrl1 = 'http://localhost:8080/user';
   // URL 2 is for all other methods
-  private baseUrl2 = 'http://localhost:8080/accounts';
+  private baseUrl2 = 'http://localhost:8080/users';
 
   getAccountById(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl1}/${id}`);

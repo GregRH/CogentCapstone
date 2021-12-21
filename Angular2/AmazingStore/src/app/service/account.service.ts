@@ -11,8 +11,8 @@ import { SignedAccount } from './signed-account';
 export class AccountService {
   constructor(private http: HttpClient) {}
 
-  private baseUrl = 'http://localhost:8080/account';
-  private baseUrl2 = 'http://localhost:8080/api/accounts';
+  private baseUrl = 'http://localhost:8080/user';
+  private baseUrl2 = 'http://localhost:8080/api/users';
   private authUrl = 'http://localhost:8080/auth';
 
   signUp(account: Object): Observable<Object> {

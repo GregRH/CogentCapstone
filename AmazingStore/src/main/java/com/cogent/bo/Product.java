@@ -15,10 +15,14 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 @Data
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="product")
 public class Product implements Serializable {
