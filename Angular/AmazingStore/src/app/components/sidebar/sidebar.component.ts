@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from '../service/category';
-import { CategoryService } from '../service/category.service';
+import { Category } from '../../service/category';
+import { CategoryService } from '../../service/category.service';
 
 @Component({
   selector: 'app-sidebar',

@@ -25,10 +25,10 @@
 // }
 
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../service/account.service';
-import { Account } from '../service/account';
-import { SignedAccount } from '../service/signed-account';
-import { AuthenticationService } from '../service/auth.service';
+import { AccountService } from '../../service/account.service';
+import { Account } from '../../service/account';
+import { SignedAccount } from '../../service/signed-account';
+import { AuthenticationService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',

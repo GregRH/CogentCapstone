@@ -1,15 +1,15 @@
 //import { createR3ProviderExpression } from '@angular/compiler';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Account } from '../service/account';
-import { AccountService } from '../service/account.service';
-import { Order } from '../service/order';
-import { OrderService } from '../service/order.service';
-import { Product } from '../service/product';
-import { ProductService } from '../service/product.service';
+import { Account } from '../../service/account';
+import { AccountService } from '../../service/account.service';
+import { Order } from '../../service/order';
+import { OrderService } from '../../service/order.service';
+import { Product } from '../../service/product';
+import { ProductService } from '../../service/product.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ToastComponent } from '../toast/toast.component';
-import { CartCall } from '../cart-call';
+import { ToastComponent } from '../../toast/toast.component';
+import { CartCall } from '../../cart-call';
 export interface Tile {
   color: string;
   cols: number;

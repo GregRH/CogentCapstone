@@ -7,9 +7,9 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Order } from '../service/order';
-import { OrderService } from '../service/order.service';
-import { Product } from '../service/product';
+import { Order } from '../../service/order';
+import { OrderService } from '../../service/order.service';
+import { Product } from '../../service/product';
 import { Location } from '@angular/common';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 

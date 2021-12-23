@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
-import { Account } from '../service/account';
-import { AccountService } from '../service/account.service';
+import { Account } from '../../service/account';
+import { AccountService } from '../../service/account.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',

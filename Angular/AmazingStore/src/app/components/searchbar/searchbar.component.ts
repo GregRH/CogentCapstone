@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Product } from '../service/product';
-import { ProductService } from '../service/product.service';
+import { Product } from '../../service/product';
+import { ProductService } from '../../service/product.service';
 
 @Component({
   selector: 'app-searchbar',
