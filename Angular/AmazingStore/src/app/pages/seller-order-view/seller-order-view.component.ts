@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from '../service/account';
-import { AccountService } from '../service/account.service';
-import { Order } from '../service/order';
-import { OrderService } from '../service/order.service';
-import { Product } from '../service/product';
+import { Account } from '../../service/account';
+import { AccountService } from '../../service/account.service';
+import { Order } from '../../service/order';
+import { OrderService } from '../../service/order.service';
+import { Product } from '../../service/product';
 
 @Component({
   selector: 'app-seller-order-view',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from '../service/order';
-import { OrderService } from '../service/order.service';
+import { Order } from '../../service/order';
+import { OrderService } from '../../service/order.service';
 export interface PeriodicElement {
   name: string;
   position: number;

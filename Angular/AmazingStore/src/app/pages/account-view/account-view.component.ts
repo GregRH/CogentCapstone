@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from '../service/account';
-import { AccountService } from '../service/account.service';
-import { OrderService } from '../service/order.service';
+import { Account } from '../../service/account';
+import { AccountService } from '../../service/account.service';
+import { OrderService } from '../../service/order.service';
 
 @Component({
   selector: 'app-account-view',

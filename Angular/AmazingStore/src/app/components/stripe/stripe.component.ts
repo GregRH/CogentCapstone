@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { loadStripe } from '@stripe/stripe-js';
-import { Order } from '../service/order';
-import { OrderService } from '../service/order.service';
+import { Order } from '../../service/order';
+import { OrderService } from '../../service/order.service';
 
 @Component({
   selector: 'app-stripe',
