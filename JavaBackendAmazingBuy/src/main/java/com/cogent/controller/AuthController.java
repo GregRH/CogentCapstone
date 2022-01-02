@@ -116,11 +116,11 @@ public class AuthController {
 		User user = new User();
 		user.setName(signUpRequest.getFullName());
 		user.setPassword(encoder.encode(signUpRequest.getPassword()));
-		user.setType(signUpRequest.getAccountType());
+		user.setType(signUpRequest.getType());
 		user.setEmail(signUpRequest.getEmail());
 		user.setDob(new Date());				//new User(signUpRequest.getFullName(), 
 						//	 signUpRequest.getEmail(),
-					//		 encoder.encode(signUpRequest.getPassword()), signUpRequest.getAccountType(),signUpRequest.getDateOfBirth());
+					//		 encoder.encode(signUpRequest.getPassword()), signUpRequest.getType(),signUpRequest.getDateOfBirth());
 
 		accountRepository.save(user);
 		return ResponseEntity.ok("User registered successfully!");

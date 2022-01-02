@@ -11,7 +11,7 @@ public class SignupRequest {
  
     private String email;
     
-    private String accountType;
+    private String type;
     
    
     private String password;
@@ -27,12 +27,12 @@ public class SignupRequest {
 		this.fullName = fullName;
 	}
 
-	public String getAccountType() {
-		return accountType;
+	public String getType() {
+		return type;
 	}
 
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getDateOfBirth() {
