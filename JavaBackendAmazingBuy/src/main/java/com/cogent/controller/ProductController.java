@@ -74,11 +74,11 @@ public class ProductController {
 	public ResponseEntity<Product> updateProduct(@PathVariable(value = "id") Long productId, @RequestBody Product productDetails) throws ResourceNotFoundException {
 		Product oldProduct = productRepository.findById(productId)
 				.orElseThrow(() -> new ResourceNotFoundException("Couldn't find a product with that Id number"));
-		/*oldProduct.setPrice(productDetails.getPrice());
-		oldProduct.setQuantity(productDetails.getQuantity());
-		oldProduct.setImg(productDetails.getImg());
-		Product updatedProduct = productRepository.save(oldProduct);*/
-		Product updatedProduct = new Product();
+		oldProduct.setProductPrice(productDetails.getProductPrice());
+		oldProduct.setProductQuantity(productDetails.getProductQuantity());
+		//oldProduct.setImg(productDetails.getImg());
+		Product updatedProduct = productRepository.save(oldProduct);
+		//Product updatedProduct = new Product();
 		return ResponseEntity.ok(updatedProduct);
 	}
 	

@@ -36,6 +36,7 @@ export class SellerStockViewComponent implements OnInit {
   }
   onSubmit(p: Product) {
     console.log(p.productQuantity);
+    console.log(p);
     this.updateProduct(p);
   }
 }

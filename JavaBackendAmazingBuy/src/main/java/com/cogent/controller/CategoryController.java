@@ -22,6 +22,7 @@ public class CategoryController {
 	@GetMapping("/category")
 	public List<Category> getAllCategories() {
 		List<Category> category_list = categoryRepository.findAll();
+		category_list.forEach(a->System.out.println(a.toString()));
 		return category_list;
 	}
 	

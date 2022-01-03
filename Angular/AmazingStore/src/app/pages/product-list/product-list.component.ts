@@ -23,7 +23,9 @@ export class ProductListComponent implements OnInit {
   }
 
   getAllProducts() {
-    this.ps.getAllProducts().subscribe((res) => (this.products = res));
+    this.ps.getAllProducts().subscribe((res) => {
+      (this.products = res);
+      console.log(res);});
   }
 
   idChecker() {
